@@ -66,18 +66,19 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#262626] font-sans">
       {/* Navigation */}
+{/* Navigation */}
       <header className="sticky top-0 z-50 bg-[#EAE8E4]/95 backdrop-blur-sm border-b border-stone-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-28 sm:h-24">
             {/* Brand Logo */}
             <a href="#home" className="flex items-center gap-3">
               <img
                 src="/1.png"
                 alt="Boledi Mahlako Enterprises Logo"
-                className="h-16 w-auto object-contain"
+                className="h-24 sm:h-20 w-auto object-contain"
               />
-              <div className="hidden sm:block">
-                <span className="block text-sm font-bold tracking-[0.2em] uppercase text-[#262626]">
+              <div>
+                <span className="block text-base sm:text-sm font-bold tracking-[0.2em] uppercase text-[#262626]">
                   Boledi Mahlako
                 </span>
                 <span className="block text-xs tracking-[0.3em] uppercase text-stone-600">
@@ -102,42 +103,42 @@ export default function App() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-md text-[#262626] hover:bg-stone-300/50"
+              className="md:hidden p-2.5 rounded-md text-[#262626] hover:bg-stone-300/50"
               aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Nav Dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#EAE8E4] border-b border-stone-300 px-4 pt-2 pb-5 space-y-3">
+          <div className="md:hidden bg-[#EAE8E4] border-b border-stone-300 px-4 pt-3 pb-6 space-y-3">
             <a
               href="#home"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium hover:text-amber-600"
+              className="block py-2.5 text-lg font-medium hover:text-amber-600"
             >
               Home
             </a>
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium hover:text-amber-600"
+              className="block py-2.5 text-lg font-medium hover:text-amber-600"
             >
               Services
             </a>
             <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium hover:text-amber-600"
+              className="block py-2.5 text-lg font-medium hover:text-amber-600"
             >
               Why Us
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-center bg-[#262626] text-[#F5D042] px-5 py-2.5 rounded-md font-semibold"
+              className="block text-center bg-[#262626] text-[#F5D042] px-5 py-3 rounded-md text-base font-semibold"
             >
               Request a Quote
             </a>
@@ -145,51 +146,48 @@ export default function App() {
         )}
       </header>
 
-      {/* Hero Section */}
-      <section id="home" className="relative bg-[#262626] text-white py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+{/* Hero Section with Unobstructed Logo Background */}
+      <section
+        id="home"
+        className="relative overflow-hidden bg-[#EAE8E4] text-[#262626] py-20 sm:py-28 border-b border-stone-300"
+      >
+        {/* Background Logo Image (No Color Overlay) */}
+        <div
+          className="absolute inset-0 bg-center bg-no-repeat bg-contain sm:bg-cover opacity-100 pointer-events-none"
+          style={{ background: "white" }}
+          aria-hidden="true"
+        />
+
+        {/* Foreground Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-block px-3 py-1 rounded-full bg-[#F5D042]/15 border border-[#F5D042]/40 text-[#F5D042] text-xs font-semibold tracking-widest uppercase">
+            <div className="inline-block px-3 py-1 rounded-full bg-[#262626] text-[#F5D042] text-xs font-semibold tracking-widest uppercase">
               Trusted Multi-Service Partner
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              Excellence in <span className="text-[#F5D042]">Catering, Security, Cleaning</span> &amp; Supply.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-[#262626]">
+              Excellence in <span className="text-amber-600">Catering, Security, Cleaning</span> &amp; Supply.
             </h1>
-            <p className="text-stone-300 text-lg sm:text-xl max-w-2xl leading-relaxed">
+            <p className="text-stone-700 text-lg sm:text-xl max-w-2xl leading-relaxed">
               Boledi Mahlako Enterprises delivers dependable, integrated operational services tailored to businesses, institutions, and events.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#F5D042] text-[#262626] px-7 py-3.5 rounded-md font-bold hover:bg-amber-300 transition"
+                className="inline-flex items-center justify-center gap-2 bg-[#262626] text-[#F5D042] px-7 py-3.5 rounded-md font-bold hover:bg-stone-800 transition"
               >
                 Get a Free Quote <ArrowRight size={18} />
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center justify-center border border-stone-500 text-white px-7 py-3.5 rounded-md font-semibold hover:bg-white/10 transition"
+                className="inline-flex items-center justify-center border border-[#262626] text-[#262626] px-7 py-3.5 rounded-md font-semibold hover:bg-[#262626]/10 transition"
               >
                 Explore Services
               </a>
             </div>
           </div>
-
-          {/* Logo Showcase Card */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="bg-[#EAE8E4] p-8 sm:p-10 rounded-2xl shadow-2xl border border-stone-700 max-w-sm w-full flex flex-col items-center">
-              <img
-                src="/1.png"
-                alt="Boledi Mahlako Enterprises"
-                className="w-64 h-64 object-contain"
-              />
-              <p className="mt-4 text-xs tracking-[0.25em] uppercase text-stone-600 text-center font-medium">
-                Quality • Integrity • Reliability
-              </p>
-            </div>
-          </div>
         </div>
       </section>
-
+      
       {/* Services Section */}
       <section id="services" className="py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
